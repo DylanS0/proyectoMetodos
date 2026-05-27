@@ -1,0 +1,387 @@
+@import "tailwindcss";
+
+/* ============================================================================
+ * Tema personalizado NexusCore Systems
+ * Dark theme con acentos cyan/purple y glassmorphism
+ * ============================================================================ */
+
+@theme {
+  --color-nexus-bg: #0a0e1a;
+  --color-nexus-surface: #111827;
+  --color-nexus-card: rgba(17, 24, 39, 0.7);
+  --color-nexus-border: rgba(99, 102, 241, 0.2);
+  --color-nexus-cyan: #06b6d4;
+  --color-nexus-purple: #8b5cf6;
+  --color-nexus-green: #10b981;
+  --color-nexus-red: #ef4444;
+  --color-nexus-amber: #f59e0b;
+  --color-nexus-text: #e2e8f0;
+  --color-nexus-text-dim: #94a3b8;
+}
+
+/* === FUENTES === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* === BASE === */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-nexus-bg);
+  color: var(--color-nexus-text);
+  min-height: 100vh;
+}
+
+/* === GLASSMORPHISM CARD === */
+.glass-card {
+  background: var(--color-nexus-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--color-nexus-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.1);
+}
+
+/* === INPUTS PERSONALIZADOS === */
+.nexus-input {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: var(--color-nexus-text);
+  border-radius: 10px;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+.nexus-input:focus {
+  outline: none;
+  border-color: var(--color-nexus-cyan);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
+}
+
+.nexus-input::placeholder {
+  color: var(--color-nexus-text-dim);
+  opacity: 0.6;
+}
+
+/* === BOTONES === */
+.nexus-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.nexus-btn-primary {
+  background: linear-gradient(135deg, var(--color-nexus-cyan), var(--color-nexus-purple));
+  color: white;
+}
+
+.nexus-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(6, 182, 212, 0.3);
+}
+
+.nexus-btn-primary:active {
+  transform: translateY(0);
+}
+
+.nexus-btn-secondary {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--color-nexus-cyan);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.nexus-btn-secondary:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: var(--color-nexus-cyan);
+}
+
+.nexus-btn-danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--color-nexus-red);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 0.375rem 0.625rem;
+  font-size: 0.75rem;
+}
+
+.nexus-btn-danger:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: var(--color-nexus-red);
+}
+
+.nexus-btn-success {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--color-nexus-green);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.nexus-btn-success:hover {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: var(--color-nexus-green);
+}
+
+/* === TABLAS === */
+.nexus-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.8125rem;
+}
+
+.nexus-table th {
+  background: rgba(99, 102, 241, 0.1);
+  padding: 0.625rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-nexus-cyan);
+  border-bottom: 1px solid var(--color-nexus-border);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.nexus-table th:first-child {
+  border-radius: 8px 0 0 0;
+}
+
+.nexus-table th:last-child {
+  border-radius: 0 8px 0 0;
+}
+
+.nexus-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.08);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8125rem;
+}
+
+.nexus-table tr:hover td {
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.nexus-table .highlight-cell {
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--color-nexus-cyan);
+  font-weight: 600;
+}
+
+/* === NAVEGACIÓN TABS === */
+.nav-tab {
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px 10px 0 0;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  border-bottom: none;
+  color: var(--color-nexus-text-dim);
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+}
+
+.nav-tab:hover {
+  color: var(--color-nexus-text);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.nav-tab.active {
+  color: var(--color-nexus-cyan);
+  background: var(--color-nexus-card);
+  border-color: var(--color-nexus-border);
+}
+
+.nav-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-nexus-cyan), var(--color-nexus-purple));
+}
+
+/* === ALERTAS === */
+.nexus-alert {
+  border-radius: 10px;
+  padding: 0.875rem 1rem;
+  font-size: 0.8125rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.nexus-alert-error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+.nexus-alert-success {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #6ee7b7;
+}
+
+.nexus-alert-info {
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  color: #67e8f9;
+}
+
+/* === BADGES === */
+.nexus-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.nexus-badge-cyan {
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--color-nexus-cyan);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.nexus-badge-purple {
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--color-nexus-purple);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.nexus-badge-green {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--color-nexus-green);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* === ANIMACIONES === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(6, 182, 212, 0.2); }
+  50% { box-shadow: 0 0 30px rgba(6, 182, 212, 0.4); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.4s ease-out;
+}
+
+/* === RUTA ÓPTIMA VISUAL === */
+.path-node {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: 2px solid var(--color-nexus-cyan);
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--color-nexus-cyan);
+}
+
+.path-arrow {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-nexus-purple);
+  font-size: 1.25rem;
+  margin: 0 0.375rem;
+}
+
+/* === SCROLLBAR PERSONALIZADA === */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* === LABEL === */
+.nexus-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-nexus-text-dim);
+  margin-bottom: 0.375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* === DP TABLE SCROLL === */
+.dp-table-container {
+  overflow-x: auto;
+  max-height: 400px;
+  overflow-y: auto;
+  border-radius: 8px;
+  border: 1px solid var(--color-nexus-border);
+}
+
+/* === RESULTADO DESTACADO === */
+.result-highlight {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(139, 92, 246, 0.1));
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.result-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--color-nexus-cyan), var(--color-nexus-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.result-label {
+  font-size: 0.75rem;
+  color: var(--color-nexus-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.25rem;
+}
