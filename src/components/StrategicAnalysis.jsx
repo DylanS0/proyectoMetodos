@@ -47,7 +47,7 @@ function StrategicAnalysis({ results }) {
         - El riesgo técnico de la distribución de memoria seleccionada en los servidores.
         - La eficiencia del retorno de inversión en marketing digital ante los rendimientos decrecientes.
         
-        Responde de forma clara, con tono ejecutivo y estructurado en párrafos cortos o viñetas. Evita usar formato Markdown excesivo.
+        Responde de forma clara, con tono ejecutivo y estructurado en párrafos cortos o viñetas. Evita usar formato Markdown excesivo. Esta respuesta debe tener como titulo "Conclusiones Estratégicas del Asistente de IA"
       `;
 
       const completion = await groq.chat.completions.create({
