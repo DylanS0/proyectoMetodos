@@ -2,119 +2,40 @@ import { useState } from 'react';
 import KnapsackModule from './components/KnapsackModule';
 import GraphModule from './components/GraphModule';
 import OptimizerModule from './components/OptimizerModule';
+import StrategicAnalysis from './components/StrategicAnalysis'; // <-- Nuevo Import
 
-/**
- * ============================================================================
- * Componente App — Controlador Principal de NexusCore Systems
- * ============================================================================
- * 
- * Orquesta la navegación entre los módulos de la aplicación mediante
- * un sistema de pestañas. Cada pestaña corresponde a un módulo
- * funcional del sistema de optimización.
- * 
- * Módulos:
- * - Carga de Servidores (Mochila 0/1 — Parte I-A)
- * - Red de Distribución (Grafos por Etapas — Parte I-B)
- * - Marketing (Optimización No Lineal — Parte II)
- * - Análisis IA (Parte III — por implementar)
- */
 function App() {
-  // Estado para la pestaña activa (controla qué módulo se muestra)
   const [activeTab, setActiveTab] = useState('knapsack');
 
-  // Estado para almacenar resultados de cada módulo (para Parte III)
   const [results, setResults] = useState({
     knapsack: null,
     graph: null,
     optimizer: null
   });
 
-  /**
-   * Definición de las pestañas de navegación
-   * Cada pestaña tiene un id único, label visible, icono y descripción
-   */
+  // ... (Mantenemos tus tabs y handleResultUpdate igual) ...
   const tabs = [
-    {
-      id: 'knapsack',
-      label: 'Carga de Servidores',
-      icon: '🖥️',
-      description: 'Programación Dinámica — Mochila 0/1'
-    },
-    {
-      id: 'graph',
-      label: 'Red de Distribución',
-      icon: '🌐',
-      description: 'PD Backward — Grafos por Etapas'
-    },
-    {
-      id: 'optimizer',
-      label: 'Marketing',
-      icon: '📊',
-      description: 'Optimización No Lineal'
-    },
-    {
-      id: 'ai',
-      label: 'Análisis IA',
-      icon: '🤖',
-      description: 'Conclusiones Estratégicas'
-    }
+    { id: 'knapsack', label: 'Carga de Servidores', icon: '🖥️', description: 'Programación Dinámica — Mochila 0/1' },
+    { id: 'graph', label: 'Red de Distribución', icon: '🌐', description: 'PD Backward — Grafos por Etapas' },
+    { id: 'optimizer', label: 'Marketing', icon: '📊', description: 'Optimización No Lineal' },
+    { id: 'ai', label: 'Análisis IA', icon: '🤖', description: 'Conclusiones Estratégicas' }
   ];
 
-  /**
-   * Almacena el resultado de un módulo para uso posterior (Parte III)
-   * @param {string} module - Nombre del módulo ('knapsack', 'graph', 'optimizer')
-   * @param {Object} result - Resultado del módulo
-   */
   const handleResultUpdate = (module, result) => {
     setResults(prev => ({ ...prev, [module]: result }));
   };
 
-  /**
-   * Renderiza el contenido del módulo activo según la pestaña seleccionada
-   */
   const renderActiveModule = () => {
     switch (activeTab) {
       case 'knapsack':
-        return (
-          <KnapsackModule
-            onResult={(result) => handleResultUpdate('knapsack', result)}
-          />
-        );
+        return <KnapsackModule onResult={(result) => handleResultUpdate('knapsack', result)} />;
       case 'graph':
-        return (
-          <GraphModule
-            onResult={(result) => handleResultUpdate('graph', result)}
-          />
-        );
+        return <GraphModule onResult={(result) => handleResultUpdate('graph', result)} />;
       case 'optimizer':
-        return (
-          <OptimizerModule
-            onResult={(result) => handleResultUpdate('optimizer', result)}
-          />
-        );
+        return <OptimizerModule onResult={(result) => handleResultUpdate('optimizer', result)} />;
       case 'ai':
-        return (
-          <div className="glass-card animate-fade-in">
-            <div className="text-center py-12">
-              <span className="text-5xl mb-4 block">🤖</span>
-              <h3 className="text-xl font-semibold text-nexus-text mb-2">
-                Módulo de Análisis con IA
-              </h3>
-              <p className="text-nexus-text-dim text-sm max-w-md mx-auto">
-                Este módulo se habilitará una vez que se resuelvan los tres problemas anteriores.
-                Los resultados numéricos se enviarán a la API de Groq para un análisis estratégico.
-              </p>
-              {/* Indicadores de estado de cada módulo */}
-              <div className="flex justify-center gap-4 mt-6">
-                {['knapsack', 'graph', 'optimizer'].map((mod) => (
-                  <div key={mod} className={`nexus-badge ${results[mod] ? 'nexus-badge-green' : 'nexus-badge-purple'}`}>
-                    {results[mod] ? '✓' : '○'} {mod === 'knapsack' ? 'Mochila' : mod === 'graph' ? 'Grafos' : 'Marketing'}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        );
+        // Reemplazamos el placeholder por el componente real de IA, pasándole el estado global de resultados
+        return <StrategicAnalysis results={results} />;
       default:
         return null;
     }
